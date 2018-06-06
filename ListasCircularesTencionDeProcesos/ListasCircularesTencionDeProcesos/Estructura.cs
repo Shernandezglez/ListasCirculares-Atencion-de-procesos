@@ -26,5 +26,16 @@ namespace ListasCircularesTencionDeProcesos
                 ultimo = nuevo;
             }
         }
+
+        public Proceso ver(Proceso actual)
+        {
+            return actual;
+            
+        }
+
+        public void cambio(Proceso actual)
+        {
+            actual = actual.Siguiente;
+        }
     }
 }
