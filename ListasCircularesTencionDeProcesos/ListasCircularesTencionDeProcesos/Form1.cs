@@ -47,7 +47,9 @@ namespace ListasCircularesTencionDeProcesos
                 }
                 else
                 {
-                    vacio++;
+                    if(proceso == null)
+                        vacio++;
+
                 }
 
                 if(i == 300 && lstC.ver(proceso)._ciclos > 0)

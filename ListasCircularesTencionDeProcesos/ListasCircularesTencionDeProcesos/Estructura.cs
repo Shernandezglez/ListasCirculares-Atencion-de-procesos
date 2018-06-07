@@ -34,6 +34,10 @@ namespace ListasCircularesTencionDeProcesos
                 actual = null;
                 return actual;
             }
+            else if(actual == null)
+            {
+                return null;
+            }
             else
             {
                 return actual;
@@ -42,16 +46,28 @@ namespace ListasCircularesTencionDeProcesos
 
         public Proceso cambio(Proceso actual)
         {
-            actual = actual.Siguiente;
-
-            return actual;
+            if(actual == null)
+            {
+                return null;
+            }
+            else
+            {
+                actual = actual.Siguiente;
+                return actual;
+            }
         }
 
         public void desencolar(Proceso actual)
         {
-            if (inicio == null)
-                inicio = inicio.Siguiente;
-            else if(ultimo == null)
+            if (inicio != null)
+            {
+                while(inicio._ciclos == 0)
+                {
+                    inicio = inicio.Siguiente;
+                }
+
+            }   
+            else if(ultimo._ciclos == 0)
             {
                 while(actual.Siguiente.Siguiente != null)
                 {
