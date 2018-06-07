@@ -29,13 +29,38 @@ namespace ListasCircularesTencionDeProcesos
 
         public Proceso ver(Proceso actual)
         {
-            return actual;
-            
+            if(actual._ciclos == 0)
+            {
+                actual = null;
+                return actual;
+            }
+            else
+            {
+                return actual;
+            }
         }
 
-        public void cambio(Proceso actual)
+        public Proceso cambio(Proceso actual)
         {
             actual = actual.Siguiente;
+
+            return actual;
+        }
+
+        public void desencolar(Proceso actual)
+        {
+            if (inicio == null)
+                inicio = inicio.Siguiente;
+            else if(ultimo == null)
+            {
+                while(actual.Siguiente.Siguiente != null)
+                {
+                    ultimo = actual.Siguiente;
+                }
+                ultimo.Siguiente = inicio;
+            }
+            else
+                actual.Siguiente = actual.Siguiente.Siguiente;
         }
     }
 }
